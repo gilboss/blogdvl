@@ -2,6 +2,7 @@ baseURL = "https://gilboss.github.io/blogdvl/"
 languageCode = "es-mx"
 title = "Gilblog"
 theme = "book"
+publishDir = "docs"
 
 [params]
 BookMenuBundle = "/menu"
