@@ -1,0 +1,8 @@
+baseURL = "http://example.org/"
+languageCode = "es-mx"
+title = "Gilblog"
+theme = "book"
+
+[params]
+BookMenuBundle = "/menu"
+BookSearch = false

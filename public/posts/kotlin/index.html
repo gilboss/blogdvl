@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kotlin #  Introducción #  Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo que el código debe ser compilado a Java bytecode antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.
+ Instalación #  Instalación mediante sdk en Mac OS #  sdk install kotlin  Hello world #  Para la ejecución de kotlin desde REPL (Read, Evaluated, Print, Loop), ingresar desde la consola el comando kotlin, escribir el código y presionar enter.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Kotlin #  Introducción #  Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo que el código debe ser compilado a Java bytecode antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.
+ Instalación #  Instalación mediante sdk en Mac OS #  sdk install kotlin  Hello world #  Para la ejecución de kotlin desde REPL (Read, Evaluated, Print, Loop), ingresar desde la consola el comando kotlin, escribir el código y presionar enter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/kotlin/" />
+
+<title>Kotlin | Gilblog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY="><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Gilblog</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><a href="/docs/"><strong>Home</strong></a>
+<ul>
+<li><a href="/docs/">Presentación</a></li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<ul>
+<li><a href="/posts/"><strong>Posts</strong></a>
+<ul>
+<li><a href="/posts/kotlin/"class=active>Kotlin</a>
+<ul>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#instalación">Instalación</a></li>
+<li><a href="#hello-world">Hello world</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#funciones">Funciones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Kotlin</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introducción">Introducción</a></li>
+    <li><a href="#instalación">Instalación</a>
+      <ul>
+        <li><a href="#instalación-mediante-sdk-en-mac-os">Instalación mediante sdk en Mac OS</a></li>
+      </ul>
+    </li>
+    <li><a href="#hello-world">Hello world</a></li>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#funciones">Funciones</a></li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/kotlin/"></a>
+  </h1>
+  
+
+
+  
+
+  
+
+
+  <p><h1 id="kotlin">
+  Kotlin
+  <a class="anchor" href="#kotlin">#</a>
+</h1>
+<h2 id="introducción">
+  Introducción
+  <a class="anchor" href="#introducci%c3%b3n">#</a>
+</h2>
+<p>Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo que el código debe ser compilado a <em>Java bytecode</em> antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.</p>
+<hr>
+<h2 id="instalación">
+  Instalación
+  <a class="anchor" href="#instalaci%c3%b3n">#</a>
+</h2>
+<h3 id="instalación-mediante-sdk-en-mac-os">
+  Instalación mediante sdk en Mac OS
+  <a class="anchor" href="#instalaci%c3%b3n-mediante-sdk-en-mac-os">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sdk install kotlin
+</code></pre></div><hr>
+<h2 id="hello-world">
+  Hello world
+  <a class="anchor" href="#hello-world">#</a>
+</h2>
+<p>Para la ejecución de kotlin desde REPL (Read, Evaluated, Print, Loop), ingresar desde la consola el comando <code>kotlin</code>, escribir el código y presionar enter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello world&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>Mediante un script <code>hello_workd.kts</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>() {
+    println(<span style="color:#e6db74">&#34;Hello world&#34;</span>)
+}
+greet()
+</code></pre></div><p>Ejecución del script.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kotlin hello_world.kts
+</code></pre></div><hr>
+<h2 id="variables">
+  Variables
+  <a class="anchor" href="#variables">#</a>
+</h2>
+<p>Declaración y tipos de variables</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">var</span> nameVar: Int = <span style="color:#ae81ff">0</span> <span style="color:#75715e">//variable
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> otherVar: Int = <span style="color:#ae81ff">0</span> <span style="color:#75715e">//de sólo lectura
+</span></code></pre></div><p>Las variables no son nulables a menos que se les especifique</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">var</span> nameVar: String = <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#75715e">//no nulo
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> otherVar: String? = <span style="color:#66d9ef">null</span> <span style="color:#75715e">//se especifica que es nulable
+</span></code></pre></div><hr>
+<h2 id="funciones">
+  Funciones
+  <a class="anchor" href="#funciones">#</a>
+</h2>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introducción">Introducción</a></li>
+    <li><a href="#instalación">Instalación</a>
+      <ul>
+        <li><a href="#instalación-mediante-sdk-en-mac-os">Instalación mediante sdk en Mac OS</a></li>
+      </ul>
+    </li>
+    <li><a href="#hello-world">Hello world</a></li>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#funciones">Funciones</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

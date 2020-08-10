@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gilblog</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Gilblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-mx</language>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/</guid>
+      <description>Peresentación #  Soy Gil desarrollador de software, fin.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/posts/kotlin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/kotlin/</guid>
+      <description>Kotlin #  Introducción #  Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo que el código debe ser compilado a Java bytecode antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.
+ Instalación #  Instalación mediante sdk en Mac OS #  sdk install kotlin  Hello world #  Para la ejecución de kotlin desde REPL (Read, Evaluated, Print, Loop), ingresar desde la consola el comando kotlin, escribir el código y presionar enter.</description>
+    </item>
+    
+  </channel>
+</rss>
