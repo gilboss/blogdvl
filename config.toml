@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://gilboss.github.io/blogdvl/"
 languageCode = "es-mx"
 title = "Gilblog"
 theme = "book"
