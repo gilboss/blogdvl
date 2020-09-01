@@ -94,6 +94,17 @@ fun `function as string`(): String {
 ```kotlin
 nameOfFunction(param2 = "x", param1 = 1)
 ```
+
+### Function type
+Son variables que su valos son una función
+```kotlin
+val functionName: (String, Int) -> String = {param1, param2 -> 
+    "param1 String ${param1} param2 Int ${param2}"
+}
+
+functionName("one", 2)
+```
+
 ### Funciones anónimas
 Son bloques de código delimitado por corchetes y como su nombre lo indica no tienen nombre
 
@@ -115,3 +126,6 @@ println(
 }()   
 )
 ```
+
+### Lambda
+Es una función anónima
