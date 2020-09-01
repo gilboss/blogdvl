@@ -120,8 +120,23 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#hello-world">Hello world</a></li>
-    <li><a href="#variables">Variables</a></li>
-    <li><a href="#funciones">Funciones</a></li>
+    <li><a href="#variables">Variables</a>
+      <ul>
+        <li><a href="#declaración-y-tipos-de-variables">Declaración y tipos de variables</a></li>
+        <li><a href="#variables-nulables">Variables nulables</a></li>
+      </ul>
+    </li>
+    <li><a href="#funciones">Funciones</a>
+      <ul>
+        <li><a href="#estructura-general-de-las-funciones">Estructura general de las funciones</a></li>
+        <li><a href="#funciones-en-una-sóla-expresión">Funciones en una sóla expresión</a></li>
+        <li><a href="#funciones-con-nombre-de-función-como-string">Funciones con nombre de función como String</a></li>
+        <li><a href="#invocar-funciones-definiendo-el-nombre-de-los-parámetros-enviados">Invocar funciones definiendo el nombre de los parámetros enviados</a></li>
+        <li><a href="#function-type">Function type</a></li>
+        <li><a href="#funciones-anónimas">Funciones anónimas</a></li>
+        <li><a href="#lambda">Lambda</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -183,10 +198,17 @@ greet()
   Variables
   <a class="anchor" href="#variables">#</a>
 </h2>
-<p>Declaración y tipos de variables</p>
+<h3 id="declaración-y-tipos-de-variables">
+  Declaración y tipos de variables
+  <a class="anchor" href="#declaraci%c3%b3n-y-tipos-de-variables">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">var</span> nameVar: Int = <span style="color:#ae81ff">0</span> <span style="color:#75715e">//variable
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> otherVar: Int = <span style="color:#ae81ff">0</span> <span style="color:#75715e">//de sólo lectura
-</span></code></pre></div><p>Las variables no son nulables a menos que se les especifique</p>
+</span></code></pre></div><h3 id="variables-nulables">
+  Variables nulables
+  <a class="anchor" href="#variables-nulables">#</a>
+</h3>
+<p>Las variables no son nulables a menos que se les especifique</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">var</span> nameVar: String = <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#75715e">//no nulo
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> otherVar: String? = <span style="color:#66d9ef">null</span> <span style="color:#75715e">//se especifica que es nulable
 </span></code></pre></div><hr>
@@ -194,6 +216,76 @@ greet()
   Funciones
   <a class="anchor" href="#funciones">#</a>
 </h2>
+<h3 id="estructura-general-de-las-funciones">
+  Estructura general de las funciones
+  <a class="anchor" href="#estructura-general-de-las-funciones">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">nameOfFunction</span>(param1: Int, param2: String = <span style="color:#e6db74">&#34;&#34;</span>): Boolean{
+    println(<span style="color:#e6db74">&#34;First param: ${param1}&#34;</span>)
+    println(<span style="color:#e6db74">&#34;Second param: ${param2}&#34;</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+</code></pre></div><p><code>private</code> Modificador de visivilidad, si es público puede ser omitido.</p>
+<p><code>fun</code> Palabra reservada para indicar que es una función.</p>
+<p><code>nameOfFunction</code> Nombre de la función.</p>
+<p><code>param1, param2</code> Nombre de los parámetros.</p>
+<p><code>param2: String = &quot;&quot;</code> Parámetro con valor por default.</p>
+<p><code>: Int, : String</code> Tipo de dato del parámetro.</p>
+<p><code>: Boolean</code> Tipo de dato retornado por la función.</p>
+<p><code>return true</code> Valor devuelto por la función.</p>
+<p><em><strong>Los parámetros de las funciones son de sólo lectura (val)</strong></em></p>
+<h3 id="funciones-en-una-sóla-expresión">
+  Funciones en una sóla expresión
+  <a class="anchor" href="#funciones-en-una-s%c3%b3la-expresi%c3%b3n">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">increase</span>(x: Int) = x + <span style="color:#ae81ff">1</span>
+</code></pre></div><h3 id="funciones-con-nombre-de-función-como-string">
+  Funciones con nombre de función como String
+  <a class="anchor" href="#funciones-con-nombre-de-funci%c3%b3n-como-string">#</a>
+</h3>
+<p>Se asigna el nombre de la función entre ``</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">`function as string`</span>(): String {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>
+}
+</code></pre></div><h3 id="invocar-funciones-definiendo-el-nombre-de-los-parámetros-enviados">
+  Invocar funciones definiendo el nombre de los parámetros enviados
+  <a class="anchor" href="#invocar-funciones-definiendo-el-nombre-de-los-par%c3%a1metros-enviados">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">nameOfFunction(param2 = <span style="color:#e6db74">&#34;x&#34;</span>, param1 = <span style="color:#ae81ff">1</span>)
+</code></pre></div><h3 id="function-type">
+  Function type
+  <a class="anchor" href="#function-type">#</a>
+</h3>
+<p>Son variables que su valos son una función</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> functionName: (String, Int) -&gt; String = {param1, param2 -&gt; 
+    <span style="color:#e6db74">&#34;param1 String ${param1} param2 Int ${param2}&#34;</span>
+}
+
+functionName(<span style="color:#e6db74">&#34;one&#34;</span>, <span style="color:#ae81ff">2</span>)
+</code></pre></div><h3 id="funciones-anónimas">
+  Funciones anónimas
+  <a class="anchor" href="#funciones-an%c3%b3nimas">#</a>
+</h3>
+<p>Son bloques de código delimitado por corchetes y como su nombre lo indica no tienen nombre</p>
+<p>Estructura de las funciones anónimas</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">{ 
+    <span style="color:#66d9ef">val</span> a: Int = <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">val</span> b: Int = <span style="color:#ae81ff">1</span>
+    a + b
+}()
+</code></pre></div><p>Normalmente enviados como parámetro a otras funciones o también retornadas por otras funciones.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">println(
+ { 
+    <span style="color:#66d9ef">val</span> a: Int = <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">val</span> b: Int = <span style="color:#ae81ff">2</span>
+    a + b
+}()   
+)
+</code></pre></div><h3 id="lambda">
+  Lambda
+  <a class="anchor" href="#lambda">#</a>
+</h3>
+<p>Es una función anónima</p>
 </p>
 </article>
  
@@ -236,8 +328,23 @@ greet()
       </ul>
     </li>
     <li><a href="#hello-world">Hello world</a></li>
-    <li><a href="#variables">Variables</a></li>
-    <li><a href="#funciones">Funciones</a></li>
+    <li><a href="#variables">Variables</a>
+      <ul>
+        <li><a href="#declaración-y-tipos-de-variables">Declaración y tipos de variables</a></li>
+        <li><a href="#variables-nulables">Variables nulables</a></li>
+      </ul>
+    </li>
+    <li><a href="#funciones">Funciones</a>
+      <ul>
+        <li><a href="#estructura-general-de-las-funciones">Estructura general de las funciones</a></li>
+        <li><a href="#funciones-en-una-sóla-expresión">Funciones en una sóla expresión</a></li>
+        <li><a href="#funciones-con-nombre-de-función-como-string">Funciones con nombre de función como String</a></li>
+        <li><a href="#invocar-funciones-definiendo-el-nombre-de-los-parámetros-enviados">Invocar funciones definiendo el nombre de los parámetros enviados</a></li>
+        <li><a href="#function-type">Function type</a></li>
+        <li><a href="#funciones-anónimas">Funciones anónimas</a></li>
+        <li><a href="#lambda">Lambda</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
