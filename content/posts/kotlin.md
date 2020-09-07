@@ -1,7 +1,7 @@
 # Kotlin
 
 ## Introducción
-Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo que el código debe ser compilado a *Java bytecode* antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.
+Kotlin es un lenguaje de programación de tipado estático creado para correr sobre la JVM, por lo que el código debe ser compilado a *Java bytecode* antes de ser ejecutado. Cuenta con otras características como ser transpido a código javascript o compidado a código nativo de otras plataformas como iOS o Windows.
 
 
 ---
@@ -9,7 +9,7 @@ Kotlin es un lenguaje de programación creado para correr sobre la JVM, por lo q
 ## Instalación
 ### Instalación mediante sdk en Mac OS
 ```shell
-sdk install kotlin
+sdk install kotlin 1.4
 ```
 
 ---
@@ -21,7 +21,7 @@ Para la ejecución de kotlin desde REPL (Read, Evaluated, Print, Loop), ingresar
 println("Hello world")
 ```
 
-Mediante un script `hello_workd.kts`
+Mediante un script `hello_world.kts`
 ```kotlin
 fun greet() {
     println("Hello world")
@@ -32,21 +32,55 @@ Ejecución del script.
 ```shell
 kotlin hello_world.kts
 ```
+### Diferencia entre archivos .kts y .kt
+Los archivos `.kts` se refieren a que el contenido del archivo es un script.
+Los archivos `.kt` no son scripts y se usan para definir clases.
+
+Para ejecutar un script solo se requiere el commando `kotlin` más el nombre del archivo `kts`
+```shell
+kotlin hello_world.kts
+```
+Para ejecutar un archivo `kt` primero debe ser compilado, para el arcvhivo `hello_world.kt`
+```kotlin
+fun main() {
+    println("Hello world")
+}
+```
+Mediante el compilador de kotlin `kotlinc` se compila el archivo
+```shell
+kotlinc hello_world.kt
+```
+El cual genera un archivo con el mismo nombre más la terminación *Kt* `Hello_worldKt.class` que es el que se ejecuta.
+```shell
+kotlin Hello_worldKt
+```
+Ya que el compilador de kotlin genera *bytecode* también puede ser ejecutado por Java.
+```shell
+java Hello_worldKt
+```
 
 ---
 
 ## Variables
 ### Declaración y tipos de variables
 
+Pueden ser principalmente de dos tipos `var` mutables o `val` inmutables.
+
 ```kotlin
-var nameVar: Int = 0 //variable
-val otherVar: Int = 0 //de sólo lectura
+var nameVar: Int = 0 //variable mutable
+val otherVar: Int = 0 //variable inmutable
 ```
 ### Variables nulables
 Las variables no son nulables a menos que se les especifique
 ```kotlin
 var nameVar: String = "" //no nulo
 val otherVar: String? = null //se especifica que es nulable
+```
+
+### Constantes
+Definición de una constante
+```kotlin
+const val CONSTANT_NAME: String = "Value"
 ```
 
 ---
@@ -96,7 +130,7 @@ nameOfFunction(param2 = "x", param1 = 1)
 ```
 
 ### Function type
-Son variables que su valos son una función
+Son variables que su valor son una función
 ```kotlin
 val functionName: (String, Int) -> String = {param1, param2 -> 
     "param1 String ${param1} param2 Int ${param2}"
@@ -128,4 +162,30 @@ println(
 ```
 
 ### Lambda
-Es una función anónima
+Es una función anónima que se envía como parámetro a otra función.
+Ejemplo: Si se define una función que recibe como parámetro otra función
+```kotlin
+fun greet(greeting: () -> Unit) {
+    greeting()
+}
+```
+Se invoca de la siguiente forma
+```kotlin
+greet({ println("Hello!") })
+````
+También se pueden excluir los parámetros
+```kotlin
+greet{ 
+  println("Hello!") 
+}
+```
+
+## Funciones Inline
+Se define mediante la palabra `inline`
+```kotlin
+inline fun functionName : () -> Int = {
+  0
+}
+```
+Su característica es que al ser compilado el contenido de esta función es pegado en dónde haya sido invocada.
+
